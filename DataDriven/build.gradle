@@ -42,6 +42,13 @@ dependencies {
     
 }
 
+gradle.settingsEvaluated { settings ->
+    settings.plugins.withId("com.gradle.enterprise") {
+        settings.gradleEnterprise.buildScan { 
+            termsOfServiceUrl = "https://gradle.com/terms-of-service"; termsOfServiceAgree = "yes" 
+        }
+    }
+}
 
 sourceSets.main.java.srcDirs = ['src']
 sourceSets.test.java.srcDirs = ['src']
